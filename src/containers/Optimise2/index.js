@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 import React from 'react';
 import PropTypes from 'prop-types';
 import JSONPretty from 'react-json-pretty';
+import LastRenderTime from '../../components/LastRenderTime';
 
 function Optimise2({ squares }) {
     const src = `import { createSelector } from 'reselect'
@@ -23,9 +24,7 @@ export default connect(mapStateToProps)(Optimise2);`;
         <div className="section container-example container-optimise1">
             <h2>{'Container example #2'}</h2>
             <h3>{'used reselect'}</h3>
-            <span className="last-render">
-                {'Last render time: '}{new Date().toISOString()}
-            </span>
+            <LastRenderTime time={new Date()} />
             <span className="data">
                 <span>{'Squares: '}</span>
                 <JSONPretty id="data-json-optimise-0" json={JSON.stringify(squares)} />

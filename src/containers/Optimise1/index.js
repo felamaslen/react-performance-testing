@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 import JSONPretty from 'react-json-pretty';
+import LastRenderTime from '../../components/LastRenderTime';
 
 function Optimise1({ squares }) {
     const src = `const mapStateToProps = state => ({
@@ -15,9 +16,7 @@ export default connect(mapStateToProps)(Optimise1);
         <div className="section container-example container-optimise1">
             <h2>{'Container example #1'}</h2>
             <h3>{'removed unnecessary state'}</h3>
-            <span className="last-render">
-                {'Last render time: '}{new Date().toISOString()}
-            </span>
+            <LastRenderTime time={new Date()} />
             <span className="data">
                 <span>{'Squares: '}</span>
                 <JSONPretty id="data-json-optimise-0" json={JSON.stringify(squares)} />
