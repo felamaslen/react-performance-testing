@@ -23,5 +23,17 @@ body {
         display: flex;
         flex-flow: column;
     }
+
+    .src {
+        pre {
+            padding: 0.5em 1em;
+            background: #eee;
+            border-radius: 2px;
+        }
+       
+        h4 {
+            margin: 0.2em 0;
+        }
+    }
 }
 

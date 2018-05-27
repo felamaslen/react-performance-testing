@@ -8,7 +8,7 @@ export default function Modifications({ numValues, foo, onChangeNumValues, onCha
         <div className="section modifications">
             <h2>{'Modifications'}</h2>
             <div className="modification modification-num-values">
-                <span>{'Containers should re-render when changing this slider: '}</span>
+                <span>{'Containers '}<b>{'should'}</b>{' re-render when changing this slider: '}</span>
                 <input type="range"
                     value={numValues}
                     min={0}
