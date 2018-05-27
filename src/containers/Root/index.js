@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Modifications from '../../components/Modifications';
 import CurrentState from '../../components/CurrentState';
 import NotOptimised from '../NotOptimised';
+import Optimise1 from '../Optimise1';
+import Optimise2 from '../Optimise2';
 
 import './style.scss';
 
@@ -16,6 +18,8 @@ function Root({ stateString, ...props }) {
             </div>
             <div className="row">
                 <NotOptimised />
+                <Optimise1 />
+                <Optimise2 />
             </div>
         </div>
     );

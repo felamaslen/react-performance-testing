@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import React from 'react';
 import PropTypes from 'prop-types';
 import JSONPretty from 'react-json-pretty';
 
-function NotOptimised({ squares }) {
+function Optimise2({ squares }) {
     return (
-        <div className="section container-example container-not-optimised">
-            <h2>{'Container example #0'}</h2>
-            <h3>{'not optimised'}</h3>
+        <div className="section container-example container-optimise1">
+            <h2>{'Container example #2'}</h2>
+            <h3>{'used reselect'}</h3>
             <span className="last-render">
                 {'Last render time: '}{new Date().toISOString()}
             </span>
@@ -19,14 +20,19 @@ function NotOptimised({ squares }) {
     );
 }
 
-NotOptimised.propTypes = {
+Optimise2.propTypes = {
     squares: PropTypes.array.isRequired
 };
 
+const getValues = state => state.values;
+
+const getSquares = createSelector([getValues], values =>
+    values.map(value => value ** 2)
+);
+
 const mapStateToProps = state => ({
-    squares: state.values.map(value => value ** 2),
-    foo: state.foo
+    squares: getSquares(state)
 });
 
-export default connect(mapStateToProps)(NotOptimised);
+export default connect(mapStateToProps)(Optimise2);
 

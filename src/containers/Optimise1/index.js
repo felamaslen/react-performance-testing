@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import JSONPretty from 'react-json-pretty';
 
-function NotOptimised({ squares }) {
+function Optimise1({ squares }) {
     return (
-        <div className="section container-example container-not-optimised">
-            <h2>{'Container example #0'}</h2>
-            <h3>{'not optimised'}</h3>
+        <div className="section container-example container-optimise1">
+            <h2>{'Container example #1'}</h2>
+            <h3>{'removed unnecessary state'}</h3>
             <span className="last-render">
                 {'Last render time: '}{new Date().toISOString()}
             </span>
@@ -19,14 +19,13 @@ function NotOptimised({ squares }) {
     );
 }
 
-NotOptimised.propTypes = {
+Optimise1.propTypes = {
     squares: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
-    squares: state.values.map(value => value ** 2),
-    foo: state.foo
+    squares: state.values.map(value => value ** 2)
 });
 
-export default connect(mapStateToProps)(NotOptimised);
+export default connect(mapStateToProps)(Optimise1);
 
