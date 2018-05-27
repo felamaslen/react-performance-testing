@@ -1,0 +1,10 @@
+.last-render {
+    &.warn {
+        font-weight: bold;
+        color: red;
+        &::after {
+            content: " (!)";
+        }
+    }
+}
+
