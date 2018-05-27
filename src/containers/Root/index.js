@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
-import JSONPretty from 'react-json-pretty';
+import CurrentState from '../../components/CurrentState';
 
 function Root({ stateString }) {
     return (
         <div className="react-perf-testing-root">
-            <JSONPretty id="state-json" json={stateString} />
+            <CurrentState state={stateString} />
         </div>
     );
 }
