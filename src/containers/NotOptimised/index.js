@@ -5,12 +5,13 @@ import JSONPretty from 'react-json-pretty';
 
 function NotOptimised({ squares }) {
     return (
-        <div className="container-example container-not-optimized">
+        <div className="section container-example container-not-optimized">
             <h2>{'Container example #0 (not optimised)'}</h2>
             <span className="last-render">
                 {'Last render time: '}{new Date().toISOString()}
             </span>
             <span className="data">
+                <span>{'Squares: '}</span>
                 <JSONPretty id="data-json-optimise-0" json={JSON.stringify(squares)} />
             </span>
         </div>

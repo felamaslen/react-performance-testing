@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    font: 1em sans-serif;
+}
+
+.react-perf-testing-root {
+    display: flex;
+    flex-flow: column;
+
+    .row {
+        display: flex;
+        flex-flow: row;
+
+        .section {
+            margin: 1em;
+            padding: 1em;
+            flex: 1 0 0;
+            border: 1px solid #ccc;
+        }
+    }
+
+    .container-example {
+        display: flex;
+        flex-flow: column;
+    }
+}
+

@@ -1,14 +1,22 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
+import Modifications from '../../components/Modifications';
 import CurrentState from '../../components/CurrentState';
 import NotOptimised from '../NotOptimised';
 
-function Root({ stateString }) {
+import './style.scss';
+
+function Root({ stateString, ...props }) {
     return (
         <div className="react-perf-testing-root">
-            <CurrentState state={stateString} />
-            <NotOptimised />
+            <div className="row">
+                <Modifications {...props} />
+                <CurrentState state={stateString} />
+            </div>
+            <div className="row">
+                <NotOptimised />
+            </div>
         </div>
     );
 }
@@ -18,8 +26,15 @@ Root.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    stateString: JSON.stringify(state)
+    stateString: JSON.stringify(state),
+    numValues: state.values.length,
+    foo: state.foo
 });
 
-export default connect(mapStateToProps)(Root);
+const mapDispatchToProps = dispatch => ({
+    onChangeNumValues: numValues => dispatch({ type: 'NUM_VALUES_CHANGED', numValues }),
+    onChangeFoo: () => dispatch({ type: 'FOO_TOGGLED' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root);
 
